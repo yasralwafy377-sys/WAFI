@@ -1,0 +1,151 @@
+>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAFI - التواصل الاجتماعي</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f1f3f2;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #123c2d;
+  color: white;
+  padding: 18px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.gold {
+  color: #d9a441;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 15px 3px;
+}
+
+nav a {
+  color: #123c2d;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+main {
+  padding: 12px;
+}
+
+.card {
+  background: white;
+  padding: 17px;
+  margin-bottom: 13px;
+  border-radius: 12px;
+}
+
+h3 {
+  color: #123c2d;
+}
+
+.register {
+  display: block;
+  background: #123c2d;
+  color: white;
+  text-align: center;
+  padding: 13px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.post {
+  background: #123c2d;
+  color: white;
+  border: 0;
+  padding: 12px 22px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+WAFI <span class="gold">●</span>
+</header>
+
+<nav>
+<a href="index.html">🏠 الرئيسية</a>
+<a href="#search">🔍 البحث</a>
+<a href="#publish">➕ نشر</a>
+<a href="register.html">👤 حسابي</a>
+</nav>
+
+<main>
+
+<div class="card">
+<h3>مرحباً بك في WAFI</h3>
+<p>منصتك الاجتماعية الجديدة للتواصل والمشاركة.</p>
+
+<a class="register" href="register.html">
+إنشاء حساب جديد
+</a>
+</div>
+
+<div class="card" id="publish">
+<h3>إنشاء منشور</h3>
+
+<input id="postText" placeholder="بماذا تفكر؟">
+
+<button class="post" onclick="publish()">
+نشر
+</button>
+</div>
+
+<div id="posts"></div>
+
+</main>
+
+<script>
+function publish() {
+  const input = document.getElementById("postText");
+  const value = input.value.trim();
+
+  if (!value) return;
+
+  const card = document.createElement("div");
+  card.className = "card";
+
+  const paragraph = document.createElement("p");
+  paragraph.textContent = value;
+
+  card.appendChild(paragraph);
+
+  document.getElementById("posts").prepend(card);
+
+  input.value = "";
+}
+</script>
+
+</body>
+</html>
+
